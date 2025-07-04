@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+
+package authservice.services;
+
+
+import "Contracts/AuthService/types.proto";
+option csharp_namespace = "TaskManagementSystem.GrpcLib.AuthService.Services";
+
+
+service UserService {
+    rpc Register(authservice.types.RegisterUserRequest) returns (authservice.types.TokenResponse);
+    rpc Login(authservice.types.LoginUserRequest) returns (authservice.types.TokenResponse);
+}
