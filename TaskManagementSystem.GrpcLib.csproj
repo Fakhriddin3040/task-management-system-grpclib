@@ -7,13 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.71.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf
-      Include="**/*.proto"
-      GrpcServices="Both"
-    />
+    <Protobuf Include="**/*.proto" GrpcServices="Both" />
   </ItemGroup>
 
 </Project>
