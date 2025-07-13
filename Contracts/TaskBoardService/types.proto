@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package taskboardservice.types;
+
+
+option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskBoardService.Types";
+
+
+import "google/protobuf/timestamp.proto";
+
+
+message TaskBoardCreateRequest {
+    string name = 1;
+    string description = 2;
+}
+
+message TaskBoardCreateResponse {
+    string id = 1;
+}

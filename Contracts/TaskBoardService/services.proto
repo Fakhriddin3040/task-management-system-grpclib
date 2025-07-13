@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+
+package taskboardservice.services;
+
+option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskBoardService.Services";
+
+import "Contracts/TaskBoardService/types.proto";
+
+service TaskBoardService {
+    rpc Create(types.TaskBoardCreateRequest) returns (types.TaskBoardCreateResponse);
+}
