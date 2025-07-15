@@ -17,3 +17,13 @@ message TaskBoardCreateRequest {
 message TaskBoardCreateResponse {
     string id = 1;
 }
+
+message TaskBoardColumnCreateRequest {
+    string task_board_id = 1;
+    string name = 2;
+}
+
+message TaskBoardColumnCreateResponse {
+    string id = 1;
+    int32 order = 2;
+}

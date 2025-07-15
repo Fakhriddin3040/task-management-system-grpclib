@@ -9,4 +9,5 @@ import "Contracts/TaskBoardService/types.proto";
 
 service TaskBoardService {
     rpc Create(types.TaskBoardCreateRequest) returns (types.TaskBoardCreateResponse);
+    rpc CreateColumn(types.TaskBoardColumnCreateRequest) returns (types.TaskBoardColumnCreateResponse);
 }
