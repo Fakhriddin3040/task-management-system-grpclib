@@ -6,8 +6,15 @@ package taskboardservice.services;
 option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskBoardService.Services";
 
 import "Contracts/TaskBoardService/types.proto";
+import "google/protobuf/empty.proto";
 
 service TaskBoardService {
     rpc Create(types.TaskBoardCreateRequest) returns (types.TaskBoardCreateResponse);
     rpc CreateColumn(types.TaskBoardColumnCreateRequest) returns (types.TaskBoardColumnCreateResponse);
+    rpc GetById(types.TaskBoardGetRequest) returns (types.TaskBoardDetailed);
+    rpc GetAll(types.TaskBoardListRequest) returns (types.TaskBoardListResponse);
+    rpc UpdateColumn(types.TaskBoardColumnUpdateRequest) returns (google.protobuf.Empty);
+    rpc Update(types.TaskBoardUpdateRequest) returns (google.protobuf.Empty);
+    rpc DeleteColumn(types.TaskBoardColumnDeleteRequest) returns (google.protobuf.Empty);
+    rpc Delete(types.TaskBoardDeleteRequest) returns (google.protobuf.Empty);
 }
