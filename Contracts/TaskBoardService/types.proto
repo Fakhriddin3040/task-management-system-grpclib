@@ -42,7 +42,7 @@ message TaskBoardColumnCreateResponse {
 message TaskBoardColumnUpdateRequest {
     string id = 1;
     string name = 2;
-    uint32 order = 3;
+    int32 order = 3;
 }
 
 // Delete a task board column
@@ -70,10 +70,6 @@ message TaskBoardDetailed {
     google.protobuf.Timestamp created_at = 6;
     google.protobuf.Timestamp updated_at = 7;
     repeated TaskBoardColumn columns = 8;
-}
-
-message TaskBoardListRequest {
-    string organization_id = 1;
 }
 
 message TaskBoardListResponse {
