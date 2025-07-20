@@ -9,12 +9,12 @@ import "Contracts/TaskBoardService/types.proto";
 import "google/protobuf/empty.proto";
 
 service TaskBoardService {
-    rpc Create(types.TaskBoardCreateRequest) returns (types.TaskBoardCreateResponse);
-    rpc CreateColumn(types.TaskBoardColumnCreateRequest) returns (types.TaskBoardColumnCreateResponse);
-    rpc GetById(types.TaskBoardGetRequest) returns (types.TaskBoardDetailed);
-    rpc GetAll(google.protobuf.Empty) returns (types.TaskBoardListResponse);
-    rpc UpdateColumn(types.TaskBoardColumnUpdateRequest) returns (google.protobuf.Empty);
-    rpc Update(types.TaskBoardUpdateRequest) returns (google.protobuf.Empty);
-    rpc DeleteColumn(types.TaskBoardColumnDeleteRequest) returns (google.protobuf.Empty);
-    rpc Delete(types.TaskBoardDeleteRequest) returns (google.protobuf.Empty);
+    rpc Create(types.TaskBoardCreateProtoRequest) returns (types.TaskBoardCreateProtoResponse);
+    rpc CreateColumn(types.TaskBoardColumnCreateProtoRequest) returns (types.TaskBoardColumnCreateProtoResponse);
+    rpc GetById(types.TaskBoardGetProtoRequest) returns (types.TaskBoardDetailedProto);
+    rpc GetAll(google.protobuf.Empty) returns (types.TaskBoardListProtoResponse);
+    rpc UpdateColumn(types.TaskBoardColumnUpdateProtoRequest) returns (google.protobuf.Empty);
+    rpc Update(types.TaskBoardUpdateProtoRequest) returns (google.protobuf.Empty);
+    rpc DeleteColumn(types.TaskBoardColumnDeleteProtoRequest) returns (google.protobuf.Empty);
+    rpc Delete(types.TaskBoardDeleteProtoRequest) returns (google.protobuf.Empty);
 }

@@ -9,49 +9,49 @@ option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskBoardService.Types";
 import "google/protobuf/timestamp.proto";
 
 
-message TaskBoardCreateRequest {
+message TaskBoardCreateProtoRequest {
     string name = 1;
     string description = 2;
 }
 
-message TaskBoardCreateResponse {
+message TaskBoardCreateProtoResponse {
     string id = 1;
 }
 
 // Board columns
-message TaskBoardColumn {
+message TaskBoardColumnProto {
     string id = 1;
     string name = 2;
-    uint32 order = 3;
+    int32 order = 3;
     string created_by_id = 4;
     string updated_by_id = 5;
     google.protobuf.Timestamp created_at = 6;
     google.protobuf.Timestamp updated_at = 7;
 }
 
-message TaskBoardColumnCreateRequest {
+message TaskBoardColumnCreateProtoRequest {
     string task_board_id = 1;
     string name = 2;
 }
 
-message TaskBoardColumnCreateResponse {
+message TaskBoardColumnCreateProtoResponse {
     string id = 1;
     int32 order = 2;
 }
 
-message TaskBoardColumnUpdateRequest {
+message TaskBoardColumnUpdateProtoRequest {
     string id = 1;
     string name = 2;
     int32 order = 3;
 }
 
 // Delete a task board column
-message TaskBoardColumnDeleteRequest {
+message TaskBoardColumnDeleteProtoRequest {
     string id = 1;
 }
 
 // Task Board
-message TaskBoard {
+message TaskBoardProto {
     string id = 1;
     string name = 2;
     string description = 3;
@@ -61,7 +61,7 @@ message TaskBoard {
     google.protobuf.Timestamp updated_at = 7;
 }
 
-message TaskBoardDetailed {
+message TaskBoardDetailedProto {
     string id = 1;
     string name = 2;
     string description = 3;
@@ -69,22 +69,22 @@ message TaskBoardDetailed {
     string updated_by_id = 5;
     google.protobuf.Timestamp created_at = 6;
     google.protobuf.Timestamp updated_at = 7;
-    repeated TaskBoardColumn columns = 8;
+    repeated TaskBoardColumnProto columns = 8;
 }
 
-message TaskBoardListResponse {
-    repeated TaskBoard task_boards = 1;
+message TaskBoardListProtoResponse {
+    repeated TaskBoardProto task_boards = 1;
 }
 
-message TaskBoardGetRequest {
+message TaskBoardGetProtoRequest {
     string id = 1;
 }
 
-message TaskBoardDeleteRequest {
+message TaskBoardDeleteProtoRequest {
     string id = 1;
 }
 
-message TaskBoardUpdateRequest {
+message TaskBoardUpdateProtoRequest {
     string id = 1;
     string name = 2;
     string description = 3;
