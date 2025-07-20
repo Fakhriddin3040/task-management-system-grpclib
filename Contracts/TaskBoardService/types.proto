@@ -25,8 +25,8 @@ message TaskBoardColumnProto {
     int32 order = 3;
     string created_by_id = 4;
     string updated_by_id = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
+    int64 created_at = 6;
+    int64 updated_at = 7;
 }
 
 message TaskBoardColumnCreateProtoRequest {
@@ -57,8 +57,8 @@ message TaskBoardProto {
     string description = 3;
     string created_by_id = 4;
     string updated_by_id = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
+    int64 created_at = 6;
+    int64 updated_at = 7;
 }
 
 message TaskBoardDetailedProto {
@@ -67,8 +67,8 @@ message TaskBoardDetailedProto {
     string description = 3;
     string created_by_id = 4;
     string updated_by_id = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
+    int64 created_at = 6;
+    int64 updated_at = 7;
     repeated TaskBoardColumnProto columns = 8;
 }
 
