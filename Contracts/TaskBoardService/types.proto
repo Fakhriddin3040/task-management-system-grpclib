@@ -6,9 +6,6 @@ package taskboardservice.types;
 option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskBoardService.Types";
 
 
-import "google/protobuf/timestamp.proto";
-
-
 message TaskBoardCreateProtoRequest {
     string name = 1;
     string description = 2;
@@ -45,6 +42,14 @@ message TaskBoardColumnUpdateProtoRequest {
     int32 order = 3;
 }
 
+message TaskBoardGetAllColumnsRequest {
+    string board_id = 1;
+}
+
+message TaskBoardGetAllColumnsResponse {
+    repeated TaskBoardColumnProto columns = 1;
+}
+
 // Delete a task board column
 message TaskBoardColumnDeleteProtoRequest {
     string id = 1;
@@ -70,6 +75,10 @@ message TaskBoardDetailedProto {
     int64 created_at = 6;
     int64 updated_at = 7;
     repeated TaskBoardColumnProto columns = 8;
+}
+
+message TaskBoardListProtoRequest {
+    repeated string ids = 1;
 }
 
 message TaskBoardListProtoResponse {

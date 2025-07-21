@@ -11,8 +11,9 @@ import "google/protobuf/empty.proto";
 service TaskBoardService {
     rpc Create(types.TaskBoardCreateProtoRequest) returns (types.TaskBoardCreateProtoResponse);
     rpc CreateColumn(types.TaskBoardColumnCreateProtoRequest) returns (types.TaskBoardColumnCreateProtoResponse);
+    rpc GetAllColumns(types.TaskBoardGetAllColumnsRequest) returns (types.TaskBoardGetAllColumnsResponse);
     rpc GetById(types.TaskBoardGetProtoRequest) returns (types.TaskBoardDetailedProto);
-    rpc GetAll(google.protobuf.Empty) returns (types.TaskBoardListProtoResponse);
+    rpc GetByIds(types.TaskBoardListProtoRequest) returns (types.TaskBoardListProtoResponse);
     rpc UpdateColumn(types.TaskBoardColumnUpdateProtoRequest) returns (google.protobuf.Empty);
     rpc Update(types.TaskBoardUpdateProtoRequest) returns (google.protobuf.Empty);
     rpc DeleteColumn(types.TaskBoardColumnDeleteProtoRequest) returns (google.protobuf.Empty);
