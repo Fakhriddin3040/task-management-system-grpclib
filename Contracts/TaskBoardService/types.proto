@@ -27,7 +27,7 @@ message TaskBoardColumnProto {
 }
 
 message TaskBoardColumnCreateProtoRequest {
-    string task_board_id = 1;
+    string board_id = 1;
     string name = 2;
 }
 
@@ -36,17 +36,23 @@ message TaskBoardColumnCreateProtoResponse {
     int64 order = 2;
 }
 
-message TaskBoardColumnUpdateProtoRequest {
+message TaskBoardRenameColumnProtoRequest {
     string id = 1;
     string name = 2;
     int64 order = 3;
 }
 
-message TaskBoardGetAllColumnsRequest {
+message TaskBoardMoveColumnProtoRequest {
+    string column_id = 1;
+    string previous_id = 2;
+    string next_id = 3;
+}
+
+message TaskBoardGetAllColumnsProtoRequest {
     string board_id = 1;
 }
 
-message TaskBoardGetAllColumnsResponse {
+message TaskBoardGetAllColumnsProtoResponse {
     repeated TaskBoardColumnProto columns = 1;
 }
 
@@ -82,7 +88,7 @@ message TaskBoardListProtoRequest {
 }
 
 message TaskBoardListProtoResponse {
-    repeated TaskBoardProto task_boards = 1;
+    repeated TaskBoardProto boards = 1;
 }
 
 message TaskBoardGetProtoRequest {
