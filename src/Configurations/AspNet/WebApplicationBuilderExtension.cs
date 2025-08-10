@@ -25,4 +25,14 @@ public static class WebApplicationBuilderExtension
     {
         app.MapGrpcService<UserService.UserServiceBase>();
     }
+
+    public static void UseGrpcLibTaskBoardServices(this WebApplication app)
+    {
+        app.MapGrpcService<TaskBoardService.Services.TaskBoardService.TaskBoardServiceBase>();
+    }
+
+    public static void UseGrpcLibTaskServices(this WebApplication app)
+    {
+        app.MapGrpcService<TaskService.Services.TaskService.TaskServiceBase>();
+    }
 }

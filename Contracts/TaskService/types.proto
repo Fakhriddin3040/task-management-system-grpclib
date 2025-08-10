@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+
+package taskservice.types;
+
+
+option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskService.Types";
+
+// Object
+message TaskProto {
+    string id = 1;
+    string title = 2;
+}
+
+message TaskDetailedProto {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string board_id = 8;
+    string column_id = 9;
+    string assigned_to_id = 4;
+    int64 deadline = 5;
+    int64 created_at = 6;
+    int64 updated_at = 7;
+    string created_by_id = 10;
+    string updated_by_id = 11;
+}
+
+// Creation
+
+message TaskCreateProtoRequest {
+    string title = 1;
+    string description = 2;
+    string assigned_to_id = 3;
+    string board_id = 4;
+    string column_id = 5;
+}
+
+message TaskCreateProtoResponse {
+    string id = 1;
+}
+
+
+// Update
+message TaskUpdateProtoRequest {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string assigned_to_id = 4;
+    int64 deadline = 5;
+}
+
+
+// Delete
+message TaskDeleteProtoRequest {
+    string id = 1;
+}
+
+
+// Move
+message TaskMoveProtoRequest {
+    string id = 1;
+    string previous_task_id = 2;
+    string next_task_id = 3;
+    string column_id = 4; // Optional, if not provided, the task will be moved within the same column
+}
+
+// Get:Board
+message TaskGetByBoardIdProtoRequest {
+    string board_id = 1;
+}
+
+message TaskGetByBoardIdProtoResponse {
+    repeated TaskProto tasks = 1;
+}
+
+// Get:Column
+message TaskGetByColumnIdProtoRequest {
+    string column_id = 1;
+}
+
+message TaskGetByColumnIdProtoResponse {
+    repeated TaskProto tasks = 1;
+}
+
+// Get:Detailed
+message TaskGetDetailedProtoRequest {
+    string id = 1;
+}
+
+message TaskGetDetailedProtoResponse {
+    TaskDetailedProto task = 1;
+}

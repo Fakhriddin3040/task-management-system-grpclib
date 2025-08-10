@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+
+package taskservice.services;
+
+import "Contracts/TaskService/types.proto";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskService.Services";
+
+
+service TaskService {
+    // Create a new task
+    rpc CreateTask(types.TaskCreateProtoRequest)
+            returns (types.TaskCreateProtoResponse);
+
+    // Update a new task
+    rpc UpdateTask(types.TaskUpdateProtoRequest)
+            returns (google.protobuf.Empty);
+
+    // Delete a task
+    rpc DeleteTask(types.TaskDeleteProtoRequest)
+            returns (google.protobuf.Empty);
+
+    // Move a task to another position (optional to another column)
+    rpc MoveTask(types.TaskMoveProtoRequest)
+            returns (google.protobuf.Empty);
+
+    // Get:Board
+    rpc GetByBoardId(types.TaskGetByBoardIdProtoRequest)
+            returns (types.TaskGetByBoardIdProtoResponse);
+
+    // Get:Column
+    rpc GetByColumnId(types.TaskGetByColumnIdProtoRequest)
+            returns (types.TaskGetByColumnIdProtoResponse);
+
+    // Get:Detailed
+    rpc GetById(types.TaskGetDetailedProtoRequest)
+            returns (types.TaskGetDetailedProtoResponse);
+}
