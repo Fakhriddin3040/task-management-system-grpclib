@@ -9,7 +9,7 @@ namespace TaskManagementSystem.GrpcLib.Configurations.AspNet;
 public static class WebApplicationBuilderExtension
 {
 
-    public static void AddGrpcLib(this IServiceCollection services)
+    public static void AddGrpcLibServices(this IServiceCollection services)
     {
         services.AddGrpc();
         services.AddGrpcReflection();
@@ -29,10 +29,5 @@ public static class WebApplicationBuilderExtension
     public static void UseGrpcLibTaskBoardServices(this WebApplication app)
     {
         app.MapGrpcService<TaskBoardService.Services.TaskBoardService.TaskBoardServiceBase>();
-    }
-
-    public static void UseGrpcLibTaskServices(this WebApplication app)
-    {
-        app.MapGrpcService<TaskService.Services.TaskService.TaskServiceBase>();
     }
 }

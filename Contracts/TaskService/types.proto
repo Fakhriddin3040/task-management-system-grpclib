@@ -7,23 +7,19 @@ package taskservice.types;
 option csharp_namespace = "TaskManagementSystem.GrpcLib.TaskService.Types";
 
 // Object
-message TaskProto {
-    string id = 1;
-    string title = 2;
-}
-
 message TaskDetailedProto {
     string id = 1;
     string title = 2;
     string description = 3;
-    string board_id = 8;
-    string column_id = 9;
     string assigned_to_id = 4;
     int64 deadline = 5;
     int64 created_at = 6;
     int64 updated_at = 7;
+    string board_id = 8;
+    string column_id = 9;
     string created_by_id = 10;
     string updated_by_id = 11;
+    int64 rank = 12;
 }
 
 // Creation
@@ -34,6 +30,7 @@ message TaskCreateProtoRequest {
     string assigned_to_id = 3;
     string board_id = 4;
     string column_id = 5;
+    int64 deadline = 6; // Optional, if not provided, the task will not have a deadline
 }
 
 message TaskCreateProtoResponse {
@@ -66,21 +63,36 @@ message TaskMoveProtoRequest {
 }
 
 // Get:Board
+message TaskGetByBoardIdProtoMessage {
+    string id = 1;
+    string title = 2;
+    string assigned_to_id = 3; // Optional, if not provided, all tasks will be returned
+    string column_id = 4;
+    int64 rank = 5;
+}
+
 message TaskGetByBoardIdProtoRequest {
     string board_id = 1;
 }
 
 message TaskGetByBoardIdProtoResponse {
-    repeated TaskProto tasks = 1;
+    repeated TaskGetByBoardIdProtoMessage tasks = 1;
 }
 
 // Get:Column
+message TaskGetByColumnIdProtoMessage {
+    string id = 1;
+    string title = 2;
+    string assigned_to_id = 3;
+    int64 rank = 4;
+}
+
 message TaskGetByColumnIdProtoRequest {
     string column_id = 1;
 }
 
 message TaskGetByColumnIdProtoResponse {
-    repeated TaskProto tasks = 1;
+    repeated TaskGetByColumnIdProtoMessage tasks = 1;
 }
 
 // Get:Detailed
@@ -89,5 +101,16 @@ message TaskGetDetailedProtoRequest {
 }
 
 message TaskGetDetailedProtoResponse {
-    TaskDetailedProto task = 1;
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string assigned_to_id = 4;
+    int64 deadline = 5;
+    int64 created_at = 6;
+    int64 updated_at = 7;
+    string board_id = 8;
+    string column_id = 9;
+    string created_by_id = 10;
+    string updated_by_id = 11;
+    int64 rank = 12;
 }
