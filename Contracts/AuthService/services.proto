@@ -5,10 +5,12 @@ package authservice.services;
 
 
 import "Contracts/AuthService/types.proto";
+import "google/protobuf/empty.proto";
 option csharp_namespace = "TaskManagementSystem.GrpcLib.AuthService.Services";
 
 
 service UserService {
-    rpc Register(authservice.types.RegisterUserRequest) returns (authservice.types.TokenResponse);
+    rpc Register(authservice.types.RegisterUserRequest) returns (google.protobuf.Empty);
     rpc Login(authservice.types.LoginUserRequest) returns (authservice.types.TokenResponse);
+    rpc Verify(authservice.types.VerifyUserProtoRequest) returns (authservice.types.TokenResponse);
 }

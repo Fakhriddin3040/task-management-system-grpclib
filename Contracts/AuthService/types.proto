@@ -9,6 +9,11 @@ message RegisterUserRequest {
     string password = 2;
 }
 
+message VerifyUserProtoRequest {
+    string credential = 1;
+    string code = 2;
+}
+
 message TokenResponse {
     string access_token = 1;
     string refresh_token = 2;
